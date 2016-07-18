@@ -1,0 +1,48 @@
+<?php
+namespace headflow\core\joomla\dao\abs;
+
+/**
+ * Auto Generated Abstract Service object for domain model class <!$entityClass!>.
+ * Do Not Modify!
+ * @author Navid Mitchell
+ */
+abstract class Abstract<!$entityName!>Service{
+
+	/**
+	 * The dao that all service methods will delegate to.  
+	 * @var <!$daoClassName!> $<!$daoParameterName!>
+	 */
+	protected $<!$daoParameterName!>;
+
+	
+	/**
+	 * The default constructor for this service.
+	 * @param <!$daoClassName!> $<!$daoParameterName!> the dao used by this service.
+	 */
+ 	function __construct(\<!$daoClassName!> $<!$daoParameterName!>){
+ 		$this-><!$daoParameterName!> = $<!$daoParameterName!>;
+ 	}
+
+	<!foreach $methods as $method!>
+		<!if $method->isPublic() && !$method->isConstructor()!>
+		<!$completeParamString = ""!>
+		<!$methodParamString =""!>
+		<!foreach $method->getParameters() as $param!>
+			<!$paramString = "$"|cat:$param->getName()!>
+			<!if $param->getPosition() > 0!><!$completeParamString = $completeParamString|cat:", "!><!$methodParamString = $methodParamString|cat:", "!><!/if!>
+			<!$methodParamString = $methodParamString|cat:$paramString!>
+			<!if $param->getClass() != null!><!$paramClass = "\\"|cat:$param->getClass()->getName()!><!$completeParamString = $completeParamString|cat:$paramClass!><!$completeParamString = $completeParamString|cat:" "!><!/if!>
+			<!$paramString = $paramString|addDefaultParameter:$param!>
+			<!$completeParamString = $completeParamString|cat:$paramString!>
+		<!/foreach!>
+		
+	<!if !($method->getDocComment() === false)!><!$method->getDocComment()|addRemoteMethod!><!/if!>
+	
+	public function <!$method->getName()!>(<!$completeParamString!>){
+		return $this-><!$daoParameterName!>-><!$method->getName()!>(<!$methodParamString!>);	
+	}
+	
+		<!/if!>
+	<!/foreach!>
+
+}

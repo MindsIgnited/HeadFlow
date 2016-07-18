@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<container xmlns="http://www.symfony-project.org/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:action="http://www.mitchellsoftware.net/schema/dic/action"
+    xmlns:container="http://www.mitchellsoftware.net/schema/dic/container"
+    xmlns:twig="http://www.mitchellsoftware.net/schema/dic/twig"
+    xmlns:onecms="http://www.mitchellsoftware.net/schema/dic/onecms"
+    xsi:schemaLocation="http://www.symfony-project.org/schema/dic/services http://www.symfony-project.org/schema/dic/services/services-1.0.xsd
+                        http://www.mitchellsoftware.net/schema/dic/container http://www.mitchellsoftware.net/schema/dic/container/container-1.0.xsd
+                        http://www.mitchellsoftware.net/schema/dic/action http://www.mitchellsoftware.net/schema/dic/action/action-1.0.xsd
+						http://www.mitchellsoftware.net/schema/dic/twig http://www.mitchellsoftware.net/schema/dic/twig/twig-1.0.xsd
+						http://www.mitchellsoftware.net/schema/dic/onecms http://www.mitchellsoftware.net/schema/dic/onecms/onecms-1.0.xsd">
+
+ <twig:addTemplateDir path="%root.dir%/component/smashingslider/view" />
+
+</container>

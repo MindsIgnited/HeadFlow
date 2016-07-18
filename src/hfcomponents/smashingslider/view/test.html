@@ -1,0 +1,19 @@
+ 
+<ul id="slider1">
+  <li><div class="text" style="background-color:blue;color:red;">Blah Blah Blah</div></li>
+  <li><img src="images/test1.jpg" /></li>
+  <li>
+   <div style="width:100%;height:100%">
+    	{{ action.renderMarket|raw }}
+   </div>
+  </li>
+  <li><img src="images/test2.jpg" /></li>
+</ul>
+
+<script type="text/javascript">
+jQuery(function (jQ) {
+    
+	 jQ('#slider1').anythingSlider(); // add any non-default options here
+});
+
+</script>

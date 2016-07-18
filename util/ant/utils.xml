@@ -1,0 +1,52 @@
+<project name="KinoticUtil" basedir="../" default="">
+
+    <!-- Project settings -->
+    <property name="project.distname" value="Kinotic"/>
+
+	
+    <!-- Local system paths -->
+    <property name="build.dir" value="build"/>
+	<property name="php-src.dir" value="${basedir}/php-src"/>
+	<property name="buildScript.dir" value="${basedir}/dbbuild"/>
+	<property name="kinotic-php-base" value="${php-src.dir}/kinotic"/>
+	
+
+	
+
+	
+	<!-- Generates DB schema from Docrtine configuration -->
+	<target name="SchemaDBGen">
+		<exec dir="${kinotic-php-base}" 
+			  executable="php">
+			<arg line="doctrine orm:schema-tool:drop --force"/>
+		</exec>
+		<exec dir="${kinotic-php-base}" 
+			  executable="php">
+			<arg line="doctrine orm:schema-tool:create"/>
+		</exec>
+		<exec dir="${kinotic-php-base}" 
+			  executable="php">
+			<arg line="doctrine dbal:import ${buildScript.dir}/masterData.sql"/>
+		</exec>
+	</target> 
+	
+	<target name="SchemaFileGen">
+		<exec dir="${kinotic-php-base}" 
+			  executable="php"
+			  output="${buildScript.dir}/masterDB.sql">
+			<arg line="doctrine orm:schema-tool:create --dump-sql"/>
+		</exec>
+	</target> 
+	
+	
+	<target name="DoctrineGenerateProxies">
+		<exec dir="${kinotic-php-base}" 
+			  executable="php">
+			<arg line="doctrine orm:generate-proxies"/>
+		</exec>
+	</target> 
+	
+	
+	
+</project>
+

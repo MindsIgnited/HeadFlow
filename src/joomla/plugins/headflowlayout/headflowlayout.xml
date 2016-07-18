@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<install version="1.5" type="plugin" group="system">
+   <name>HeadFlow Layout</name>
+	<author>HeadFlow, LLC</author>
+	<creationDate>December 30, 2010</creationDate>
+	<authorEmail></authorEmail>
+	<authorUrl></authorUrl>
+	<copyright>(C) 2005 - 2010 HeadFlow, LLC. All rights reserved.</copyright>
+	<license></license>
+	<version>0.1</version>
+   <description>Provides layout options. (Do Not Disable)</description>
+   <files>
+       <filename plugin="headflowlayout">headflowlayout.php</filename>
+       <filename >headflowoverride.php</filename>
+   </files>
+   <params/>
+</install>

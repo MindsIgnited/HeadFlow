@@ -1,0 +1,3 @@
+
+<div class="headFlowEditable"><img src="{{ this.imagePath }}" alt="{{ this.altText }}" title="{{ this.title }}" /></div>
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns="http://www.headflow.com/schema/dic/widget"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.headflow.com/schema/dic/widget"
+    elementFormDefault="qualified">
+    
+  <xsd:element name="scan" type="scan"/>
+  <xsd:complexType name="scan">
+    <xsd:attribute name="dojoNamespace" type="xsd:string" use="optional"/>
+    <xsd:attribute name="path" type="xsd:string" use="required"/>
+  </xsd:complexType>
+
+
+  </xsd:schema>

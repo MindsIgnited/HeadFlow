@@ -1,0 +1,21 @@
+PHP
+
+json_encode() Php Version 5.2.0 >
+
+Propel: PHP Version  5.2.4 >  http://www.propelorm.org/wiki/Documentation/1.5/Installation
+
+    pear Log
+    php-xsl
+
+Propel requires the following settings in php.ini:
+
+Variable	Value
+ze1_compatibility_mode	Off
+magic_quotes_gpc	Off
+magic_quotes_sybase	Off
+
+
+Slinks Require 
+
+DomDocument http://www.php.net/manual/en/dom.setup.php ( for some distributions "yum install php-xml")
+    

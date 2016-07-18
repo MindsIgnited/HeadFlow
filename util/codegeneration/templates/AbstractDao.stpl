@@ -1,0 +1,145 @@
+<?php 
+namespace headflow\core\joomla\dao\abs;
+
+/**
+ * Auto Generated Base DAO class for <!$entityClass!> objects. 
+ * Do Not Modify!
+ *
+ * @author Navid Mitchell
+ */
+abstract class Abstract<!$entityName!>DAO {
+
+	/**
+	 * The Doctrine entity manager.
+	 * @var $entityManager ORM\EntityManager
+	 */
+	protected $entityManager;
+
+ 	function __construct($entityManager){
+ 		$this->entityManager = $entityManager;
+ 	}
+
+
+	/**
+	 * Returns the number of rows in the table.
+	 * @param $callback if set allows should provide a function that expects the Doctrine\ORM\QueryBuilder as a single argument.  EX: "function callback(Doctrine\ORM\QueryBuilder &$qb)"
+	 * This allow you to supply custom conditions ect. The Enitity table should always be referred to as "<!$entityAlias!>" when using the Doctrine\ORM\QueryBuilder. 
+	 * @return int the entity count 
+	 */
+	public function count($callback = null) {
+			
+		$qb = $this->entityManager->createQueryBuilder();	
+							  
+		$qb = $qb->select($qb->expr()->count('*'))
+		   		  ->from('<!$entityClass!>', '<!$entityAlias!>');
+		   		  
+		if(isset($callback)){
+			$callback($qb);
+		}   		  
+		
+		$rs = $qb->getQuery()->getArrayResult();					  
+								  
+		return $rs[0];						  
+	}
+
+
+	/**
+	 * Returns all the rows from the table.
+	 * @param $callback if set allows should provide a function that expects the Doctrine\ORM\QueryBuilder as a single argument.  EX: "function callback(Doctrine\ORM\QueryBuilder &$qb)"
+	 * This allow you to supply custom conditions ect. The Enitity table should always be referred to as "<!$entityAlias!>" when using the Doctrine\ORM\QueryBuilder. 
+	 * @return array
+	 */
+	public function findAll($callback=null) {
+		
+		$qb = $this->entityManager->createQueryBuilder();	
+							  
+		$qb = $qb->select('<!$entityAlias!>')
+		   		  ->from('<!$entityClass!>', '<!$entityAlias!>');
+		   		  
+		if(isset($callback)){
+			$callback($qb);
+		}   		  
+		
+		return $qb->getQuery()->getResult();
+	}
+	
+
+	/**
+	 * Returns the item corresponding to the value specified for the primary key.
+	 * @param int $id
+	 * @return int
+	 */
+	public function findById($id) {
+		return $this->entityManager->find('<!$entityClass!>', $id);
+	}
+	
+
+	/**
+	 * Returns $numItems rows starting from the $startIndex row from the 
+	 * table.
+	 * @param int $pageNumber the 
+	 * @param int $itemsPerPage	 
+	 * @param $callback if set allows should provide a function that expects the Doctrine\ORM\QueryBuilder as a single argument.  EX: "function callback(Doctrine\ORM\QueryBuilder &$qb)"
+	 * This allow you to supply custom conditions ect. The Enitity table should always be referred to as "<!$entityAlias!>" when using the Doctrine\ORM\QueryBuilder. 
+	 * @return array 
+	 */
+	public function findPage($pageNumber,$itemsPerPage = 25,$callback = null) {
+		$qb = $this->entityManager->createQueryBuilder();	
+							  
+		$qb = $qb->select('<!$entityAlias!>')
+		   		  ->from('<!$entityClass!>', '<!$entityAlias!>');
+		   		  
+		if(isset($callback)){
+			$callback($qb);
+		} 
+		  
+		return $qb->getQuery()->setFirstResult($pageNumber*$itemsPerPage)
+							  ->setMaxResults($itemsPerPage)
+							  ->getResult();
+	}
+	
+
+	/**
+	 * Returns the number of pages that exisit for the entitiy.
+	 * @param $callback if set allows should provide a function that expects the Doctrine\ORM\QueryBuilder as a single argument.  EX: "function callback(Doctrine\ORM\QueryBuilder &$qb)"
+	 * This allow you to supply custom conditions ect. The Enitity table should always be refered to as "<!$entityAlias!>" when using the Doctrine\ORM\QueryBuilder. 
+	 * @return int the number of pages.
+	 */
+	public function pageCount($itemsPerPage,$callback = null){
+		$val = count($callback);
+		return $val / $itemsPerPage;
+	}
+	
+	
+	/**
+	 * Deletes the item corresponding to the object from the table.
+	 * @param <!$entityClass!> $item
+	 * @return void
+	 */
+	public function remove(\<!$entityClass!> $item) {
+		$this->entityManager->remove($item);
+		
+		$this->entityManager->flush();	
+	}
+	
+	
+	/**
+	 * Updates the passed item in the table.
+	 *
+	 * @param <!$entityClass!> $item
+	 * @return void
+	 */
+	public function saveOrUpdate(\<!$entityClass!> $item) {
+		// see if this object is and should be managed by the enitity manager.
+		if($item->getId() != null && !$this->entityManager->contains($item)){
+			$item = $this->entityManager->merge($item);
+		}
+		
+		$this->entityManager->persist($item);
+		
+		$this->entityManager->flush();
+		
+		return $item;
+	}
+
+}

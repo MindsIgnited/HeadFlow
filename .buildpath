@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildpath>
+	<buildpathentry kind="src" path="src/headflow"/>
+	<buildpathentry kind="src" path="src/joomla/components/com_headflow"/>
+	<buildpathentry kind="src" path="src/joomla/modules/mod_headflow"/>
+	<buildpathentry kind="src" path="src/joomla/plugins/headflowlayout"/>
+	<buildpathentry kind="src" path="src/tests"/>
+	<buildpathentry kind="src" path="UIConcept/joomla/testlayout"/>
+	<buildpathentry kind="src" path="UIConcept/view"/>
+	<buildpathentry kind="src" path="util/codegeneration"/>
+	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
+</buildpath>

@@ -1,0 +1,21 @@
+<?php 
+namespace headflow\core\joomla\dao;
+
+/**
+ * Auto Generated concrete DAO class for <!$entityClass!> objects. 
+ * This class will only be gernerated if it does not exisist. It is safe to add modifications here. 
+ *
+ * @author Navid Mitchell
+ *
+ * @Service
+ */
+class <!$entityName!>DAO extends abs\Abstract<!$entityName!>DAO{
+
+ 	/**
+	 * @Inject
+	 */
+ 	function __construct($entityManager){
+ 		parent::__construct($entityManager);
+ 	}
+
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+	<name>HeadFlowModule</name>
+	<author>HeadFlow, LLC</author>
+	<creationDate>December 30, 2010</creationDate>
+	<authorEmail></authorEmail>
+	<authorUrl></authorUrl>
+	<copyright>(C) 2005 - 2010 HeadFlow, LLC. All rights reserved.</copyright>
+	<license></license>
+	<version>0.1</version>
+	<description>Module to display any HeadFlow widget.</description>
+	<files>
+		<filename module="mod_headflow">mod_headflow.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<params>
+		<param name="widget" type="text" default="" label="Widget" description="The name of HeadFlow Widget." />
+		<param name="parameters" type="text" default="" label="Parameters" description="Widget parameter string." />
+	</params>
+</install>

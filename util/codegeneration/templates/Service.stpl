@@ -1,0 +1,22 @@
+<?php
+
+namespace kinotic\businesslogic\services;
+
+/**
+ * Interfaces UI Service object for domain model class <!$entityClass!>.
+ * @author Navid Mitchell
+ *
+ * @Service
+ */
+class <!$entityName!>Service extends abs\Abstract<!$entityName!>Service{
+	
+	/**
+	 * The default constructor for this service.
+	 * @param <!$daoClassName!> $<!$daoParameterName!> the dao used by this service.
+	 * @Inject
+	 */
+ 	function __construct(\<!$daoClassName!> $<!$daoParameterName!>){
+ 		parent::__construct($<!$daoParameterName!>);
+ 	}
+	
+}

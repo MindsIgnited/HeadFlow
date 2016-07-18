@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="component" version="1.5.0">
+	<name>HeadFlow</name>
+	<author>HeadFlow, LLC</author>
+	<creationDate>December 30, 2010</creationDate>
+	<authorEmail></authorEmail>
+	<authorUrl></authorUrl>
+	<copyright>(C) 2005 - 2010 HeadFlow, LLC. All rights reserved.</copyright>
+	<license></license>
+	<version>0.1</version>
+	<description>Headflow</description>
+
+    	<!-- Site Main File Copy Section -->
+        <!-- Note the folder attribute: This attribute describes the folder
+                to copy FROM in the package to install therefore files copied
+                in this section are copied from /site/ in the package -->
+ 
+        <administration>
+                <!-- Administration Menu Section -->
+                <menu>HeadFlow</menu>
+                <!-- Administration Main File Copy Section -->
+                <!-- Note the folder attribute: This attribute describes the folder
+                        to copy FROM in the package to install therefore files copied
+                        in this section are copied from /admin/ in the package -->
+                <files>
+                        <!-- Admin Main File Copy Section -->
+                        <filename>index.html</filename>
+                        <filename>headflow.php</filename>
+                </files>
+        </administration>
+</install>
